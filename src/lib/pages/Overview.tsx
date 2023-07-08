@@ -1,9 +1,14 @@
 import { Dispatch, ReactElement} from 'react'
 import { TAppState, TDispatchAction } from '../reducer/AppState'
 import {Card, CardMedia, CardProps, Stack, StackProps, Typography, TypographyProps, useTheme} from '@mui/material'
+
 import Carousel from 'react-material-ui-carousel'
 import DemoSlide from '../components/DemoSlide'
 import demoSlides from '../../assets/overview_demo'
+
+
+import usePageHit from '../hooks/usePageHit'
+import useTimeSpent from '../hooks/useTimeSpent'
 
 
 const cardProps : CardProps = {
@@ -25,6 +30,9 @@ const Overview = (props: {
 }) : ReactElement => {
     const { state, dispatch, defaultProps } = props
     const theme = useTheme()
+    
+    usePageHit(state.activePage.path, state.activePage.title)
+    useTimeSpent(state.activePage.path, state.activePage.title)
 
     return <Stack
         {...defaultProps}

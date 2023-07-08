@@ -1,16 +1,19 @@
 import {AppBar, Button, Stack, Typography, useTheme} from '@mui/material'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {Dispatch, ReactElement} from 'react'
-import {TAppState, TDispatchAction} from '../reducer/AppState.ts'
+
 import ColorModeSwitch from './ColorModeSwitch.tsx'
+
+import {TAppState, TDispatchAction} from '../reducer/AppState.ts'
 import {DispatchAction} from '../reducer/Reducer.ts'
+
 import routeInfo from '../../assets/routes.ts'
 
 const Header = (props: {
     state: TAppState,
     dispatch: Dispatch<TDispatchAction>
 }) : ReactElement => {
-    const { state, dispatch} = props
+    const { state, dispatch } = props
     const theme = useTheme()
 
     return <AppBar color='default' position = 'relative'>
@@ -57,10 +60,10 @@ const Header = (props: {
                     <Link key={v.path} to={v.path}>
                         <Button
                             variant = 'contained'
-                            color = {state.activePage === v.path ? 'secondary' : 'primary' }
+                            color = {state.activePage.path === v.path ? 'secondary' : 'primary' }
                             onClick = {
                                 () => dispatch(DispatchAction('setActivePage', {
-                                    'activePage': v.path
+                                    'activePage': v
                                 }))
                             }
                         >

@@ -1,12 +1,14 @@
 
-export type TRoutes = {[key: string]: {
+export type TRoute = {
     path: string,
     title: string,
     position: number
-}}
+}
+
+export type TRouteMap = {[key: string]: TRoute}
 
 
-const routeInfo : TRoutes = {
+const routeInfo : TRouteMap = {
     Overview: {
         path: '/',
         title: 'Overview',

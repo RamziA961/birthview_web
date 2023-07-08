@@ -4,6 +4,8 @@ import {Avatar, Box, Button, ButtonGroup, Card, Stack, StackProps, Typography, s
 import people from '../../assets/people.ts'
 import {default as Grid} from '@mui/material/Unstable_Grid2'
 import { Mail, School } from '@mui/icons-material'
+import usePageHit from '../hooks/usePageHit'
+import useTimeSpent from '../hooks/useTimeSpent'
 
 
 const People = (props: {
@@ -14,6 +16,10 @@ const People = (props: {
 
     const { state, dispatch, defaultProps } = props
     const theme = useTheme()
+   
+
+    usePageHit(state.activePage.path, state.activePage.title)
+    useTimeSpent(state.activePage.path, state.activePage.title)
 
     const sortedByName = people.sort((a, b) => {
         if (a.name > b.name)

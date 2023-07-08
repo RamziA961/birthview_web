@@ -1,7 +1,7 @@
-import routeInfo from '../../assets/routes'
+import routeInfo, { TRoute } from '../../assets/routes'
 
 export type TAppState = {
-    activePage: string
+    activePage: TRoute
 }
 
 export type TDispatchOperation = 'setActivePage'
@@ -15,23 +15,24 @@ export type TDispatchAction = {
 
 // Get the initial route used to navigate to the web app.
 // Modifies URL to point to the homepage, if the requested route does not exist.
-const initialRoute = (): string => {
+const initialRoute = (): TRoute => {
     const currentPath = new URL(window.location.href)
-
-    if(currentPath.pathname.length === 0) {
-        return '/'
+    
+    if(currentPath.pathname.length === 0 || currentPath.pathname === '/') {
+        return routeInfo['Overview'] 
     }
-
-    if(Object
+    
+    const routesMatched = Object
         .values(routeInfo)
         .filter(entry => entry.path === currentPath.pathname)
-        .length === 0
-    ) {
+
+    if(routesMatched.length !== 1) {
         const stateObj = window.history.state
         window.history.replaceState(stateObj, stateObj?.title, `${currentPath.origin}/`)
-        return '/'
+        return routeInfo['Overview']
     }
-    return currentPath.pathname
+    
+    return routesMatched[0]
 }
 
 export const initialState = () : TAppState => {

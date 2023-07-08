@@ -5,12 +5,18 @@ import {Card, CardHeader, Chip, Divider, Stack, StackProps} from '@mui/material'
 import Publication from '../components/Publication'
 import publicationsInfo, { TPublication } from '../../assets/publications'
 
+import useTimeSpent from '../hooks/useTimeSpent'
+import usePageHit from '../hooks/usePageHit'
+
 const Publications = (props: {
     state: TAppState,
     dispatch: Dispatch<TDispatchAction>,
     defaultProps?: StackProps
 }) : ReactElement => {
     const { state, dispatch, defaultProps } = props
+    
+    usePageHit(state.activePage.path, state.activePage.title)
+    useTimeSpent(state.activePage.path, state.activePage.title)
 
     const yearGrouped =  publicationsInfo
         .reduce((accum, pub) => {

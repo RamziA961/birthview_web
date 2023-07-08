@@ -11,6 +11,9 @@ import './styles/index.css'
 import { ColorModeController } from "./lib/theme/theme.tsx";
 import { CssBaseline } from '@mui/material'
 
+import ReactGA from 'react-ga4'
+
+ReactGA.initialize('G-SQR68N8MP1', {testMode: true})
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ColorModeController>
