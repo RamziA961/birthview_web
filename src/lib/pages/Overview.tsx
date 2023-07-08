@@ -6,10 +6,7 @@ import Carousel from 'react-material-ui-carousel'
 import DemoSlide from '../components/DemoSlide'
 import demoSlides from '../../assets/overview_demo'
 
-
-import usePageHit from '../hooks/usePageHit'
-import useTimeSpent from '../hooks/useTimeSpent'
-
+import { usePageHit, useTimeSpent } from '../hooks/analytics'
 
 const cardProps : CardProps = {
     sx: {

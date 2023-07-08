@@ -1,12 +1,12 @@
 import {TAppState, TDispatchAction} from '../reducer/AppState'
 import {Dispatch, Fragment, ReactElement} from 'react'
-import {Card, CardHeader, Chip, Divider, Stack, StackProps} from '@mui/material'
+import {Chip, Divider, Stack, StackProps} from '@mui/material'
 
 import Publication from '../components/Publication'
 import publicationsInfo, { TPublication } from '../../assets/publications'
 
-import useTimeSpent from '../hooks/useTimeSpent'
-import usePageHit from '../hooks/usePageHit'
+
+import { usePageHit, useTimeSpent } from '../hooks/analytics.ts'
 
 const Publications = (props: {
     state: TAppState,

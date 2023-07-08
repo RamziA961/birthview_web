@@ -4,9 +4,8 @@ import {Avatar, Box, Button, ButtonGroup, Card, Stack, StackProps, Typography, s
 import people from '../../assets/people.ts'
 import {default as Grid} from '@mui/material/Unstable_Grid2'
 import { Mail, School } from '@mui/icons-material'
-import usePageHit from '../hooks/usePageHit'
-import useTimeSpent from '../hooks/useTimeSpent'
 
+import { usePageHit, useTimeSpent } from '../hooks/analytics.ts'
 
 const People = (props: {
     state: TAppState,

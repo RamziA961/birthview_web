@@ -1,7 +1,7 @@
 import {Stack, StackProps} from '@mui/material'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {ReactElement, useEffect, useMemo, useReducer} from 'react'
+import {ReactElement, useReducer} from 'react'
 
 import Header from '../components/Header'
 import Overview from './Overview'
@@ -12,8 +12,7 @@ import TechnicalOverview from './TechnicalOverview'
 import reducer from '../reducer/Reducer'
 import {initialState} from '../reducer/AppState'
 
-import useTimeSpentTotal from '../hooks/useTimeSpentTotal'
-import useWebsiteHit from '../hooks/useWebsiteHit'
+import { useWebsiteHit, useTimeSpentTotal } from '../hooks/analytics'
 
 import '../../styles/App.css'
 
