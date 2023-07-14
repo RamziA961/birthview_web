@@ -1,4 +1,4 @@
-import {TPublication} from '../pages/Publications.tsx'
+import { TPublicationAndAuthors } from '../../assets/publications'
 import {ReactElement} from 'react'
 import {
     Button, ButtonGroup,
@@ -12,7 +12,7 @@ import {
 import {Link, Mail, School} from '@mui/icons-material'
 
 const Publication = (props: {
-    publicationData: TPublication
+    publicationData: TPublicationAndAuthors
 } & CardProps): ReactElement => {
     const {publicationData, ...cardProps} = props
 
@@ -44,7 +44,7 @@ const Publication = (props: {
                     href={publicationData.url}
                     size='small'
                     target='_blank'
-                    rel='noreferrer'
+                    rel='noreferrer noopener'
                     sx = {{borderRadius: 2, px: 1}}
                 >
                     ACCESS
@@ -65,7 +65,7 @@ const Publication = (props: {
                                     <Button
                                         href={new URL(`mailto:${author.email}`).href}
                                         target='_blank'
-                                        rel='noreferrer'
+                                        rel='noreferrer noopener'
                                     >
                                         <Mail fontSize='inherit'/>
                                     </Button> : <></>
@@ -74,7 +74,7 @@ const Publication = (props: {
                                     <Button
                                         href={author.scholar}
                                         target='_blank'
-                                        rel='noreferrer'
+                                        rel='noreferrer noopener'
                                     >
                                         <School fontSize='inherit'/>
                                     </Button> : <></>

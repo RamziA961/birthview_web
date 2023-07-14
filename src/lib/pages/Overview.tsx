@@ -6,7 +6,7 @@ import Carousel from 'react-material-ui-carousel'
 import DemoSlide from '../components/DemoSlide'
 import demoSlides from '../../assets/overview_demo'
 
-import { usePageHit, useTimeSpent } from '../hooks/analytics'
+import { usePageHit } from '../hooks/analytics'
 
 const cardProps : CardProps = {
     sx: {
@@ -29,7 +29,6 @@ const Overview = (props: {
     const theme = useTheme()
     
     usePageHit(state.activePage.path, state.activePage.title)
-    useTimeSpent(state.activePage.path, state.activePage.title)
 
     return <Stack
         {...defaultProps}
@@ -41,9 +40,9 @@ const Overview = (props: {
                     Introducing BirthView
                 </Typography>
                 <Typography>
-                    BirthView is an advanced computer-based childbirth simulator created by the School of Computing Science 
-                    at the University of East Anglia. It specifically focuses on modeling the second stage of labor with 
-                    great accuracy.
+                    BirthView is an advanced computer-based childbirth simulator created by members of the School 
+                    of Computing Science at the University of East Anglia. It specifically focuses on modeling the 
+                    second stage of labor with great accuracy.
                 </Typography>
                 <Typography>
                     What sets BirthView apart from other software is its ability to simulate the intricate physical 

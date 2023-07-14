@@ -5,7 +5,7 @@ import people from '../../assets/people.ts'
 import {default as Grid} from '@mui/material/Unstable_Grid2'
 import { Mail, School } from '@mui/icons-material'
 
-import { usePageHit, useTimeSpent } from '../hooks/analytics.ts'
+import { usePageHit } from '../hooks/analytics.ts'
 
 const People = (props: {
     state: TAppState,
@@ -18,17 +18,8 @@ const People = (props: {
    
 
     usePageHit(state.activePage.path, state.activePage.title)
-    useTimeSpent(state.activePage.path, state.activePage.title)
 
-    const sortedByName = people.sort((a, b) => {
-        if (a.name > b.name)
-            return 1
-
-        if (a.name < b.name)
-            return -1
-
-        return 0
-    })
+    const sortedByName = people.sort((a, b) => a.name.localeCompare(b.name))
 
 
     return <Stack {...defaultProps} alignItems='center' mt = {3} gap ={2}>
@@ -83,12 +74,19 @@ const People = (props: {
                             fullWidth
                         >
                             <Button 
-                                disabled = {person.email == undefined}
+                                disabled={person.email == undefined}
+                                href={new URL(`mailto:${person.email}`).href}
+                                target='_blank'
+                                rel='noreferrer noopenner'
+                                
                             >
                                 <Mail fontSize='inherit' />
                             </Button>
                             <Button
-                                disabled = { person.scholar == undefined }
+                                href={person.scholar ? new URL(person.scholar).href : ''}
+                                rel='noreferrer noopenner'
+                                target='_blank'
+                                disabled={person.scholar == undefined}
                             >
                                 <School fontSize='inherit'/>
                             </Button>

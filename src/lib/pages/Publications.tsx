@@ -3,10 +3,11 @@ import {Dispatch, Fragment, ReactElement} from 'react'
 import {Chip, Divider, Stack, StackProps} from '@mui/material'
 
 import Publication from '../components/Publication'
-import publicationsInfo, { TPublication } from '../../assets/publications'
+import publicationsInfo, { TPublication, TPublicationAndAuthors } from '../../assets/publications'
 
 
-import { usePageHit, useTimeSpent } from '../hooks/analytics.ts'
+import { usePageHit } from '../hooks/analytics.ts'
+import people, { TPerson } from '../../assets/people.ts'
 
 const Publications = (props: {
     state: TAppState,
@@ -16,16 +17,23 @@ const Publications = (props: {
     const { state, dispatch, defaultProps } = props
     
     usePageHit(state.activePage.path, state.activePage.title)
-    useTimeSpent(state.activePage.path, state.activePage.title)
 
-    const yearGrouped =  publicationsInfo
+    const peopleMap = people.reduce((accum, person) => 
+        ({[person.name]: {...person}, ...accum }),  {} as { [k: string]: TPerson }
+    )
+
+    const yearGrouped = publicationsInfo
+        .map(curr => ({
+                ...curr, 
+                'authors': curr.authors.map((author) => peopleMap[author] ?? { name : author }) 
+        }))
         .reduce((accum, pub) => {
             if (pub.year in accum)
                 return {...accum, [pub.year]: [...accum[pub.year], {...pub}]}
 
             return {...accum, [pub.year]: [{...pub}]}
-        }, {} as {[k: number] : TPublication[]})
-
+        }, {} as {[k: number] : TPublicationAndAuthors[]})
+    
     return <Stack
         {... defaultProps }
         gap = {2}

@@ -1,12 +1,10 @@
 import {AppBar, Button, Stack, Typography, useTheme} from '@mui/material'
-import {Link} from 'react-router-dom'
 import {Dispatch, ReactElement} from 'react'
 
 import ColorModeSwitch from './ColorModeSwitch.tsx'
+import LocalLink from './LocalLink.tsx'
 
 import {TAppState, TDispatchAction} from '../reducer/AppState.ts'
-import {DispatchAction} from '../reducer/Reducer.ts'
-
 import routeInfo from '../../assets/routes.ts'
 
 const Header = (props: {
@@ -25,19 +23,21 @@ const Header = (props: {
                 alignItems = 'center'
 
             >
-                <Typography
-                    variant='h6'
-                    noWrap
-                    sx={{
-                        display: { xs: 'none', md: 'flex' },
-                        fontFamily: 'monospace',
-                        fontWeight: 700,
-                        color: 'inherit',
-                        textDecoration: 'none',
-                    }}
-                >
-                    <Link to ='/'> BirthView </Link>
-                </Typography>
+                <LocalLink dispatch={dispatch} to='/'>
+                    <Typography
+                        color={theme.palette.text.primary}
+                        variant='h6'
+                        noWrap
+                        sx={{
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            textDecoration: 'none',
+                        }}
+                    >
+                       BirthView 
+                    </Typography>
+                </LocalLink>
                 <img
                     src='/logo.png'
                     alt='Birthview logo'
@@ -57,19 +57,14 @@ const Header = (props: {
             {Object.values(routeInfo)
                 .sort((a, b) => a.position - b.position)
                 .map(v =>
-                    <Link key={v.path} to={v.path}>
+                    <LocalLink key={v.path} to={v.path} dispatch={dispatch}>
                         <Button
                             variant = 'contained'
                             color = {state.activePage.path === v.path ? 'secondary' : 'primary' }
-                            onClick = {
-                                () => dispatch(DispatchAction('setActivePage', {
-                                    'activePage': v
-                                }))
-                            }
                         >
                             {v.title}
                         </Button>
-                    </Link>
+                    </LocalLink>
                 )
             }
             <ColorModeSwitch/>
@@ -77,5 +72,6 @@ const Header = (props: {
     </Stack>
     </AppBar>
 }
+
 
 export default Header

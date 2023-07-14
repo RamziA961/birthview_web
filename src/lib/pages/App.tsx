@@ -1,7 +1,7 @@
 import {Stack, StackProps} from '@mui/material'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {ReactElement, useReducer} from 'react'
+import React, {ReactElement, useReducer} from 'react'
 
 import Header from '../components/Header'
 import Overview from './Overview'
@@ -12,9 +12,10 @@ import TechnicalOverview from './TechnicalOverview'
 import reducer from '../reducer/Reducer'
 import {initialState} from '../reducer/AppState'
 
-import { useWebsiteHit, useTimeSpentTotal } from '../hooks/analytics'
+import { useWebsiteHit } from '../hooks/analytics'
 
 import '../../styles/App.css'
+
 
 const defaultAppChildProps : StackProps = {
     px: 2,
@@ -24,7 +25,7 @@ const defaultAppChildProps : StackProps = {
     overflow: 'auto'
 }
 
-function App (): ReactElement {
+const App = (): ReactElement => {
     const [state, dispatch] = useReducer(reducer, initialState())
 
     const childProps = {
@@ -32,9 +33,8 @@ function App (): ReactElement {
         dispatch: dispatch,
         defaultProps: defaultAppChildProps
     }
-
+    
     useWebsiteHit()
-    useTimeSpentTotal()
 
     return <Stack
         m = {0}

@@ -1,7 +1,18 @@
+import { TPerson } from "./people"
 
 export type TPublication = {
     title: string,
-    authors: { name: string, email?: string, scholar?: string }[],
+    authors: string[],
+    year: number
+    journal?: string,
+    publisher: string,
+    publicationType: string,
+    url: string
+}
+
+export type TPublicationAndAuthors = {
+    title: string,
+    authors: TPerson[],
     year: number
     journal?: string,
     publisher: string,
@@ -14,31 +25,13 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'A computer-based simulation of childbirth using the partial Dirichlet–Neumann contact method with total Lagrangian explicit dynamics on the GPU',
         authors: [
-            {
-                name: 'Rudy Lapeer',
-                email: 'r.lapeer@uea.ac.uk',
-                scholar: 'https://scholar.google.com/citations?hl=en&user=wh4kam4AAAAJ'
-            },
-            {
-                name: 'Zelimkhan Gerikhanov',
-                scholar: 'https://scholar.google.co.uk/citations?user=jQsOQFwAAAAJ&hl=en'
-            },
-            {
-                name: 'Said-Magomed Sadulaev'
-            },
-            {
-                name: 'Vilius Audinis'
-            },
-            {
-                name: 'Roger Rowland'
-            },
-            {
-                name: 'Kenda Crozier'
-            },
-            {
-                name: 'Edward Morris',
-                scholar: 'https://scholar.google.co.uk/citations?hl=en&user=8zIHCpQAAAAJ'
-            }
+            'Rudy Lapeer',
+            'Zelimkhan Gerikhanov',
+            'Said-Magomed Sadulaev',
+            'Vilius Audinis',
+            'Roger Rowland',
+            'Kenda Crozier',
+            'Edward Morris',
         ],
         year: 2019,
         journal: 'Biomechanics and Modeling in Mechanobiology',
@@ -49,10 +42,7 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'Simulating the cardinal movements of childbirth using finite element analysis on the graphics processing unit',
         authors: [
-            {
-                name: 'Zelimkhan Gerikhanov',
-                scholar: 'https://scholar.google.co.uk/citations?user=jQsOQFwAAAAJ&hl=en'
-            }
+            'Zelimkhan Gerikhanov',
         ],
         year: 2017,
         publisher: 'University of East Anglia',
@@ -62,9 +52,7 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'Towards increased realism of a computer simulation of human childbirth.',
         authors: [
-            {
-                name: 'Said-Magomed Sadulaev'
-            }
+            'Said-Magomed Sadulaev'
         ],
         year: 2019,
         publisher: 'University of East Anglia',
@@ -74,18 +62,9 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'A Haptic User Interface to Assess the Mobility of the Newborn\'s Neck',
         authors: [
-            {
-                name: 'Said-Magomed Sadulaev'
-            },
-            {
-                name: 'Rudy Lapeer',
-                email: 'r.lapeer@uea.ac.uk',
-                scholar: 'https://scholar.google.com/citations?hl=en&user=wh4kam4AAAAJ'
-            },
-            {
-                name: 'Zelimkhan Gerikhanov',
-                scholar: 'https://scholar.google.co.uk/citations?user=jQsOQFwAAAAJ&hl=en'
-            }
+            'Said-Magomed Sadulaev',
+            'Rudy Lapeer',
+            'Zelimkhan Gerikhanov',
         ],
         year: 2017,
         journal: '21st International Conference Information Visualisation (IV)',
@@ -96,9 +75,7 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'Computer-based simulation of the effects of instrumental delivery on the fetal head',
         authors: [
-            {
-                name: 'Vilius Audinis'
-            }
+            'Vilius Audinis'
         ],
         publisher: 'University of East Anglia',
         year: 2017,
@@ -108,25 +85,11 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'A Computer-Based Simulation of Obstetric Forceps Placement',
         authors: [
-            {
-                name: 'Rudy Lapeer',
-                email: 'r.lapeer@uea.ac.uk',
-                scholar: 'https://scholar.google.com/citations?hl=en&user=wh4kam4AAAAJ'
-            },
-            {
-                name: 'Vilius Audinis'
-            },
-            {
-                name: 'Zelimkhan Gerikhanov',
-                scholar: 'https://scholar.google.co.uk/citations?user=jQsOQFwAAAAJ&hl=en'
-            },
-            {
-                name: 'Olivier Dupuis'
-            },
-            {
-                name: 'Edward Morris',
-                scholar: 'https://scholar.google.co.uk/citations?hl=en&user=8zIHCpQAAAAJ'
-            }
+            'Rudy Lapeer',
+            'Vilius Audinis',
+            'Zelimkhan Gerikhanov',
+            'Olivier Dupuis',
+            'Edward Morris',
         ],
         year: 2014,
         journal: 'Medical Image Computing and Computer-Assisted Intervention',
@@ -137,18 +100,9 @@ const publicationsInfo : TPublication[] = [
     {
         title: 'A computer-based simulation of vacuum extraction during childbirth',
         authors: [
-            {
-                name: 'Rudy Lapeer',
-                email: 'r.lapeer@uea.ac.uk',
-                scholar: 'https://scholar.google.com/citations?hl=en&user=wh4kam4AAAAJ'
-            },
-            {
-                name: 'Zelimkhan Gerikhanov',
-                scholar: 'https://scholar.google.co.uk/citations?user=jQsOQFwAAAAJ&hl=en'
-            },
-            {
-                name: 'Vilius Audinis'
-            }
+            'Rudy Lapeer',
+            'Zelimkhan Gerikhanov',
+            'Vilius Audinis'
         ],
         year: 2014,
         publisher: 'UEA Prints',

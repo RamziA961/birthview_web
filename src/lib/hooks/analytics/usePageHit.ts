@@ -4,12 +4,13 @@ import ReactGA from 'react-ga4'
 
 const usePageHit = (route: string, title: string) => {
     useEffect(() => {
-        ReactGA.event({
-            category: 'Hit',
-            action: 'Page Hit',
-            label: `${title} (${route})`,
-            transport: 'beacon'
-        })
+        ReactGA.send({hitType:'pageview', title: title, page: route})
+
+        // ReactGA.event({
+        //     category: 'Page',
+        //     action: 'Hit',
+        //     label: `${title} (${route})`,
+        // })
     }, [])
 }
 

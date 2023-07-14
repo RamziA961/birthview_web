@@ -34,6 +34,27 @@ const people: TPerson[] = [
     {
         name: 'Said-Magomed Sadulaev',
         affiliations: ['University of East Anglia'],
+        scholar: 'https://scholar.google.com/citations?user=kk1bd2QAAAAJ&hl=en'
+    },
+    {
+        name: 'Vilius Audinis',
+        affiliations: ['University of East Anglia']
+    },
+    {
+        name: 'Roger Rowland'
+    },
+    {
+        name: 'Kenda Crozier',
+        affiliations: ['University of East Anglia']
+    },
+    {
+        name: 'Olivier Dupuis',
+        affiliations: ['Université de Lyon']
+    },
+    {
+        name: 'Edward Morris',
+        affiliations: ['Norfolk and Norwich University Hospital'],
+        scholar: 'https://scholar.google.co.uk/citations?hl=en&user=8zIHCpQAAAAJ'
     }
 ]
 
