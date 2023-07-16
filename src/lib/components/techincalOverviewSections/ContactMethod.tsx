@@ -22,8 +22,6 @@ const ContactMethod = (props: {
         'Holzapfel, G.A., 2002. Nonlinear solid mechanics: a continuum approach for engineering science.'
     ]
     
-    const theme = useTheme()
-
     return <Stack gap={1}>
         <Typography {...titleProps}>
             Mechanical Contact Method
@@ -261,7 +259,7 @@ const ContactMethod = (props: {
         
         <Stack alignItems='center'>
             <Typography>
-                [18]: <Tex>{'g \\ge 0, \\sigma _n \\le 0, g\\sigma _n = 0, \\sigma _t = {\\mathbf {0}}'}</Tex>
+                [20]: <Tex>{'g \\ge 0, \\sigma _n \\le 0, g\\sigma _n = 0, \\sigma _t = {\\mathbf {0}}'}</Tex>
             </Typography>
             <Typography>
                 where <Tex>{'g'}</Tex> is the gap between corresponding elements of a contact pair.
@@ -286,7 +284,7 @@ const ContactMethod = (props: {
 
         <Typography>
             The concept of interpenetration, represented by the negative gap <Tex>{'(g)'}</Tex>, and its rectification to ensure 
-            a non-negative gap <Tex>{'(g)'}</Tex> as required by the HSM condition (Eq. 18), form the foundation of various numerical
+            a non-negative gap <Tex>{'(g)'}</Tex> as required by the HSM condition (Eq. 20), form the foundation of various numerical
             contact methods. 
         </Typography>
 
@@ -298,12 +296,12 @@ const ContactMethod = (props: {
         </Typography>
 
         <Typography>
-            The PM, while widely used, struggles to satisfy the conditions outlined in Eq. 18.
+            The PM, while widely used, struggles to satisfy the conditions outlined in Eq. 20.
             On the other hand, LLM-based methods do meet these conditions, but their solution in an FEM depends 
             on the chosen time step for explicit time integration. To address these limitations, 
             projection-based methods handle contact conditions kinematically by resolving contact through the movement or 
             "projection" of violating or interpenetrating nodes. 
-            This approach ensures satisfaction of the contact conditions outlined in Eq. 18, while also reducing the computational 
+            This approach ensures satisfaction of the contact conditions outlined in Eq. 20, while also reducing the computational 
             cost compared to LLM-based approaches.
         </Typography>
 
@@ -348,7 +346,8 @@ const ContactMethod = (props: {
                    projected back on to the surface, resulting in the 
                    position <Tex>{'\\mathbf{p}_p = \\mathbf{p}_i +s = \\mathbf{p}_t + \\mathbf{d}_t'}</Tex>,
                    where <Tex>{'\\mathbf{p}_i'}</Tex> is the intersection point and <Tex>{'s'}</Tex> is the 
-                   tangential slip vector. This projection ensures compliance with the non-penetration conditions (Lapeer et al., 2019)
+                   tangential slip vector. 
+                   This projection ensures compliance with the non-penetration conditions (Lapeer et al. 2019).
                 </Typography>
             </LabeledImage>
         </Stack>
@@ -366,7 +365,7 @@ const ContactMethod = (props: {
         </Typography>
 
         <Typography textAlign='center'>
-            [19]: <Tex>{'d_t = \\mathbf{p}_t - \\mathbf{p}_o \\cdot \\mathbf{n}'}</Tex>
+            [21]: <Tex>{'d_t = \\mathbf{p}_t - \\mathbf{p}_o \\cdot \\mathbf{n}'}</Tex>
         </Typography>
 
         <Typography>
@@ -375,7 +374,7 @@ const ContactMethod = (props: {
         </Typography>
 
         <Typography textAlign='center'>
-           [20]: <Tex>{'{\\mathbf {p}}_p = {\\mathbf {p}}_t + d_t{\\mathbf {n}}'}</Tex>
+           [22]: <Tex>{'{\\mathbf {p}}_p = {\\mathbf {p}}_t + d_t{\\mathbf {n}}'}</Tex>
         </Typography>
         
 
@@ -398,11 +397,9 @@ const ContactMethod = (props: {
             the finite volume method (FVM) is adopted, as described by Teran et al. (2003), to evaluate the 
             stress-based contact forces.
         </Typography>
-
-
      
 
-        <Stack direction='row' gap = {2}>
+        <Stack direction='row-reverse' gap = {2}>
             <LabeledImage
                 src='/contact_method/nodal_force.png'
                 maxWidth='50%'
@@ -422,7 +419,7 @@ const ContactMethod = (props: {
                     The nodal force for a node <Tex>{'i'}</Tex> in a 3D tetrahedron is calculated as follows:
                 </Typography>            
                 <Typography>
-                    [21]: <Tex>{
+                    [23]: <Tex>{
                         'f_i = - \\sum _{j=1}^n \\frac{1}{3} \\sigma _j(a_{j,1} {\\mathbf {n}}_{j,1} +'+ 
                         'a_{j,2} {\\mathbf {n}}_{j,2} + a_{j,3} {\\mathbf {n}}_{j,3})'
                     }</Tex>
@@ -435,11 +432,11 @@ const ContactMethod = (props: {
                     node <Tex>{'i'}</Tex> in the current spatial configuration. The parameter <Tex>{'n'}</Tex> denotes
                     the number of elements in the surrounding volume around node <Tex>{'i'}</Tex>. By substituting the
                     Cauchy stress with the nominal stress and applying Nason's formula to the areas and normals in the
-                    reference material configuration (Holfzapel 2000), the following expression is obtained:
+                    reference material configuration (Holfzapel 2000), the following express is obtained:
                 </Typography>
 
                 <Typography>
-                    [22]: <Tex>{
+                    [24]: <Tex>{
                         'f_i = - \\sum _{j=1}^n \\frac{1}{3} {\\mathbf {P}}_j(A_{j,1} {\\mathbf {N}}_{j,1} +' + 
                         'A_{j,2} {\\mathbf {N}}_{j,2} + A_{j,3} {\\mathbf {N}}_{j,3})'
                     }</Tex>
@@ -462,11 +459,44 @@ const ContactMethod = (props: {
         </Typography>
 
         <Typography textAlign='center'>
-            [23]: <Tex>{
+            [25]: <Tex>{
                 '{\\mathbf {B}}_m =' + 
                 '-\\frac{1}{3} [ A_1 {\\mathbf {N}}_1 \\ A_2 {\\mathbf {N}}_2 \\ A_3 {\\mathbf {N}}_3 \\ A_4 {\\mathbf {N}}_4 ] =' + 
                 '\\left[ b_1 \\ b_2 \\ b_3 \\ b_4 \\right]'
             }</Tex> 
+        </Typography>
+
+        <Typography>
+            Thus, the force contributions of one element <Tex>{'e'}</Tex> to each of its nodes,
+            as derived from the FVM, can be expressed in the nodal force contribution matrix:
+        </Typography>
+
+        <Typography textAlign='center'>
+            [26]: <Tex>{'f^e_{FVM} = \\mathbf{PB}_m = [g_1 \\ g_2 \\ g_3 \\ g_4]^\\mathrm{T}'}</Tex>
+        </Typography>
+
+        <Typography>
+            With <Tex>{'g_k'}</Tex> representing the nodal force contribution of 
+            element <Tex>{'e'}</Tex> to node <Tex>{'k'}</Tex>. Eq. 9 also denotes the individual element 
+            contribution to the nodal forces. It is important to note that this equation must be equal 
+            in absolute value, but opposite in sign, to the force derived in Eq. 26.
+        </Typography>
+
+        <Typography textAlign='center'>
+            [27]: <Tex>{
+               '{\\mathbf {P}} {\\mathbf {B}}_m =' +
+               '- V_0 {\\mathbf {F}}{\\mathbf {S}}^{{\\mathrm{T}}} \\partial {\\mathbf {h}}^{{\\mathrm{T}}}'
+            }</Tex> 
+        </Typography>
+
+        <Typography>
+            Since <Tex>{'\\mathbf{P} = \\mathbf{FS}'}</Tex> and <Tex>{'\\mathbf{S} = \\mathbf{S}^\\mathrm{T}'}</Tex> (Holzapfel 2000),
+            the term <Tex>{'\\mathbf{FS}^\\mathrm{T}'}</Tex> in Eq. 27 can be substituted 
+            by <Tex>{'\\mathbf{P}'}</Tex>, which eliminates its left-hand side equivalent, resulting in:
+        </Typography>
+
+        <Typography textAlign='center'>
+            [28]: <Tex>{'{\\mathbf {B}}_m = - V_0 \\partial {\\mathbf {h}}^{{\\mathrm{T}}}'}</Tex>
         </Typography>
 
         <References referenceList={referenceList}/>

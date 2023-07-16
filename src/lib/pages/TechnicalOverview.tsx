@@ -8,6 +8,7 @@ import { KeyboardArrowRight } from "@mui/icons-material"
 import FiniteElementMeshes from "../components/techincalOverviewSections/FiniteElementMeshes.tsx"
 import TLED from "../components/techincalOverviewSections/TLED.tsx"
 import ContactMethod from "../components/techincalOverviewSections/ContactMethod.tsx"
+import NeckModel from "../components/techincalOverviewSections/NeckModel.tsx"
 
 const cardProps : CardProps = {
     sx: {
@@ -91,6 +92,10 @@ const TechnicalOverview = (props: {
 
         <Card {...cardProps}>
             <TLED titleProps={titleProps} subHeaderProps={subHeaderProps}/>
+        </Card>
+
+        <Card {...cardProps}> 
+            <NeckModel titleProps={titleProps} subHeaderProps={subHeaderProps}/>
         </Card>
 
         <Card {...cardProps}>
