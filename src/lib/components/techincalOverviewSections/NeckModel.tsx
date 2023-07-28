@@ -287,13 +287,13 @@ const StiffnessTable = () => {
     const numRenderer = (params: GridValueFormatterParams) : string => params.value.toFixed(2)
     
     const columns : GridColDef[] = [
-        {field: 'segments', headerName: 'Segments', sortable: false, resizable: true, flex: 1},
-        {field: 'flexion', headerName: 'Flexion', type: 'number', resizable: true, flex: 1, valueFormatter: numRenderer},
-        {field: 'extension', headerName: 'Extension', type: 'number', resizable: true, flex: 1, valueFormatter: numRenderer},
-        {field: 'compression', headerName: 'Compression', type: 'number', resizable: true, flex: 1, valueFormatter: numRenderer},
-        {field: 'tension', headerName: 'Tension', type: 'number', resizable: true, flex: 1, valueFormatter: numRenderer},
-        {field: 'lateralBending', headerName: 'Lateral Bending', type: 'number', resizable: true, flex: 1, valueFormatter: numRenderer},
-        {field: 'axialRotation', headerName: 'Axial Rotation', type: 'number', resizable: true, flex: 1, valueFormatter: numRenderer},
+        {field: 'segments', headerName: 'Segments', sortable: false, flex: 1},
+        {field: 'flexion', headerName: 'Flexion', type: 'number', flex: 1, valueFormatter: numRenderer},
+        {field: 'extension', headerName: 'Extension', type: 'number', flex: 1, valueFormatter: numRenderer},
+        {field: 'compression', headerName: 'Compression', type: 'number', flex: 1, valueFormatter: numRenderer},
+        {field: 'tension', headerName: 'Tension', type: 'number', flex: 1, valueFormatter: numRenderer},
+        {field: 'lateralBending', headerName: 'Lateral Bending', type: 'number', flex: 1, valueFormatter: numRenderer},
+        {field: 'axialRotation', headerName: 'Axial Rotation', type: 'number', flex: 1, valueFormatter: numRenderer},
     ]
 
     const rows = [

@@ -490,8 +490,9 @@ const ContactMethod = (props: {
         </Typography>
 
         <Typography>
-            Since <Tex>{'\\mathbf{P} = \\mathbf{FS}'}</Tex> and <Tex>{'\\mathbf{S} = \\mathbf{S}^\\mathrm{T}'}</Tex> (Holzapfel 2000),
-            the term <Tex>{'\\mathbf{FS}^\\mathrm{T}'}</Tex> in Eq. 27 can be substituted 
+            Since <Tex>{'\\mathbf{P} = \\mathbf{FS}'}</Tex> and <Tex>{'\\mathbf{S} = \\mathbf{S}^\\mathrm{T}'}</Tex> (Holzapfel
+            2002), the term <Tex>{'\\mathbf{FS}^\\mathrm{T}'}</Tex> in 
+            Eq. 27 can be substituted 
             by <Tex>{'\\mathbf{P}'}</Tex>, which eliminates its left-hand side equivalent, resulting in:
         </Typography>
 

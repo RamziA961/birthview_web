@@ -1,9 +1,17 @@
-import { Tex2SVG } from "react-hook-mathjax"
+import { Tex2SVG, Tex2SVGProps } from "react-hook-mathjax"
 
 
 
 const Tex = (props: {
     children: string
-}) => <Tex2SVG display='inline' latex={props.children}/>
+} & Omit<Tex2SVGProps, 'children'>) => {
+    const { styleProps, children } = props
+
+    return <Tex2SVG 
+        display='inline'
+        {...styleProps}
+        latex={children}
+    />
+}
 
 export default Tex

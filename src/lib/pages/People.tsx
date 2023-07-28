@@ -74,11 +74,10 @@ const People = (props: {
                             fullWidth
                         >
                             <Button 
-                                disabled={person.email == undefined}
                                 href={new URL(`mailto:${person.email}`).href}
                                 target='_blank'
                                 rel='noreferrer noopenner'
-                                
+                                disabled={person.email == undefined}
                             >
                                 <Mail fontSize='inherit' />
                             </Button>

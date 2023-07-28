@@ -9,6 +9,7 @@ import FiniteElementMeshes from "../components/techincalOverviewSections/FiniteE
 import TLED from "../components/techincalOverviewSections/TLED.tsx"
 import ContactMethod from "../components/techincalOverviewSections/ContactMethod.tsx"
 import NeckModel from "../components/techincalOverviewSections/NeckModel.tsx"
+import Implementation from "../components/techincalOverviewSections/Implementation.tsx"
 
 const cardProps : CardProps = {
     sx: {
@@ -100,6 +101,10 @@ const TechnicalOverview = (props: {
 
         <Card {...cardProps}>
             <ContactMethod titleProps={titleProps} subHeaderProps={subHeaderProps}/>
+        </Card>
+
+        <Card {...cardProps}>
+            <Implementation titleProps={titleProps} subHeaderProps={subHeaderProps}/>
         </Card>
     </Stack>
 
