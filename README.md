@@ -1,3 +1,12 @@
+A web application showcasing BirthView a biomechanical childbirth simulator developed at the University of East Anglia under the supervision of [Prof. Rudy Lapeer](https://scholar.google.com/citations?user=wh4kam4AAAAJ&hl=en).
+
+See for more information:
+- [A computer-based simulation of childbirth using the partial Dirichlet–Neumann contact method with total Lagrangian explicit dynamics on the GPU](https://doi.org/10.1007/s10237-018-01109-x)
+- [Simulating the cardinal movements of childbirth using finite element analysis on the graphics processing unit](https://ueaeprints.uea.ac.uk/id/eprint/64077)
+- [Towards increased realism of a computer simulation of human childbirth](https://ueaeprints.uea.ac.uk/id/eprint/79638)
+
+Future contributors, feel free to reach out to open an issue to contact [@RamziA961](https://github.com/RamziA961/) for any questions or help with the application. 
+
 # Dependencies
 - [node LTS](https://nodejs.org/en)
 - [npm](https://www.npmjs.com/) comes with node.
@@ -34,3 +43,4 @@ Once initial configuration of the the reverse proxy is complete, rules must be s
 It is important to note that the application handles its routing internally, which means that any route except `public/{RESOURCE_NAME}` should be directed to `index.html`.
 You can refer to this [resource](https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/) for serving static content with NGINX.
 
+For a simpler deployment process consider [Vercel](https://vercel.com/), which will handle most of the configuration.
